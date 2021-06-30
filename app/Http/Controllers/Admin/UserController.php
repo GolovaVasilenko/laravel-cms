@@ -18,7 +18,7 @@ class UserController extends AdminController
      */
     public function index()
     {
-        return view('admin.user.index', ['users' => User::all()]);
+        return view('admin.user.index', ['users' => User::query()->orderByDesc('created_at')->get()]);
     }
 
     /**
@@ -83,7 +83,7 @@ class UserController extends AdminController
      */
     public function update(Request $request, User $user)
     {
-        //
+        dd($request->all());
     }
 
     /**
