@@ -70,8 +70,8 @@
                                                 @foreach($roles as $role)
                                                 <div class="">
                                                     <label>
-                                                        <input type="checkbox" class="js-switch" name="{{ $role->guard_name }}" >
-                                                         {{ $role->name }}
+                                                        <input type="checkbox" class="js-switch" name="roles[]" value="{{ $role->name }}" >
+                                                         {{ ucfirst($role->name) }}
                                                     </label>
                                                 </div>
                                                 @endforeach

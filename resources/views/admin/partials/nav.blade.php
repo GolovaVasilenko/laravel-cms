@@ -22,7 +22,7 @@
             <li><a><i class="fa fa-users"></i> Users <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="{{ route('users.index') }}"><i class="fa fa-user"></i> Users</a></li>
-                    <li><a href="#"><i class="fa fa-group"></i> Roles</a></li>
+                    <li><a href="{{ route('roles.index') }}"><i class="fa fa-group"></i> Roles</a></li>
                     <li><a href="#"><i class="fa fa-warning"></i> Permissions</a></li>
                 </ul>
             </li>

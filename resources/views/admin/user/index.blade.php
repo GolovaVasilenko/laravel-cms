@@ -49,7 +49,7 @@
                                         <tbody>
                                         @foreach($users as $user)
                                             <tr role="row">
-                                                <td>{{ $user->avatar }}</td>
+                                                <td><img src="{{ asset('uploads/' . $user->avatar) }}" width="50" /></td>
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->created_at }}</td>

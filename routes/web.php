@@ -14,4 +14,5 @@ Route::group(['prefix' => 'backoffice'], function() {
     ->name('dashboard');
 
     Route::resource('users', UserController::class);
+    Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
 });
