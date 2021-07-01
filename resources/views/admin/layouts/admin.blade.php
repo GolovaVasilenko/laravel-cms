@@ -34,11 +34,15 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="{{ asset('admin/images/img.jpg') }}" alt="..." class="img-circle profile_img">
+                        @isset($currentUser->avatar)
+                        <img src="{{ asset('uploads/' . $currentUser->avatar) }}" alt="..." class="img-circle profile_img">
+                        @else
+                        <img src="{{ asset('admin/images/user.png') }}" alt="..." class="img-circle profile_img">
+                        @endisset
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>John Doe</h2>
+                        <h2>{{ $currentUser->name ?? "" }}</h2>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -59,10 +63,10 @@
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
                             <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ asset('admin/images/img.jpg') }}" alt="">John Doe
+                                {{ $currentUser->name ?? "" }}
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                <a class="dropdown-item"  href="{{ route('logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                             </div>
                         </li>
 
@@ -77,7 +81,7 @@
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                Admin panel
             </div>
             <div class="clearfix"></div>
         </footer>

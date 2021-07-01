@@ -9,7 +9,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'backoffice'], function() {
+
+Route::get('login', [\App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
+Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'authenticate'])->name('authenticate');
+Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+Route::group(['prefix' => 'backoffice', 'middleware' => ['auth', 'admin']],  function() {
     Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
 
