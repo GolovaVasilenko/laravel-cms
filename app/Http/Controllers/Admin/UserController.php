@@ -24,9 +24,9 @@ class UserController extends AdminController
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function create()
+    public function create(User $user)
     {
-        return view('admin.user.add', ['roles' => Role::all()]);
+        return view('admin.user.add', ['roles' => Role::all(), 'info' => $user->getInfo()]);
     }
 
     /**
@@ -41,7 +41,7 @@ class UserController extends AdminController
         if(!$user) {
             return back()->with('error', 'Error creation user!');
         }
-
+        $user->setInfo($validated['info']);
         $user->assignRole($validated['roles']);
 
         if($request->hasFile('avatar')) {
@@ -77,13 +77,23 @@ class UserController extends AdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\User $user
+     * @param MediaUploadService $media
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, MediaUploadService $media)
     {
-        dd($request->all());
+        $data = $request->except(['_token', '_method', 'avatar', 'roles']);
+        $user->update($data);
+
+        $user->syncRoles($request->get('roles'));
+
+        if($request->hasFile('avatar')) {
+            $user->avatar = $media->uploadImage($request->file('avatar'), 'avatars');
+            $user->save();
+        }
+        return redirect()->route('users.edit', ['user' => $user])->with('success', 'Item successfully updated!');
     }
 
     /**

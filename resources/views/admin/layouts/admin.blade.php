@@ -98,6 +98,7 @@
 <!-- NProgress -->
 <script src="{{ asset('admin/vendors/nprogress/nprogress.js') }}"></script>
 @yield('js')
+
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('admin/build/js/custom.min.js') }}"></script>
 

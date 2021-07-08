@@ -6,6 +6,7 @@
     <div class="right_col" role="main">
         <div class="">
             <div class="page-title">
+
                 <div class="title_left">
                     <h3>Users</h3>
                 </div>
@@ -13,7 +14,7 @@
             </div>
 
             <div class="clearfix"></div>
-
+            @include('admin.partials.alerts')
             <div class="row">
                 <div class="col-md-12 col-sm-12  ">
                     <div class="x_panel">
@@ -29,19 +30,6 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <div class="col-md-6 ">
-                                <div class="x_panel">
-                                    <div class="x_content">
-                                        <br>
-                                        <div class="form-group row">
-                                            <label class="control-label col-md-3 col-sm-3 ">Avatar</label>
-                                            <div class="col-md-9 col-sm-9 ">
-                                                <input type="file" name="avatar" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-md-6 ">
                                 <div class="x_panel">
                                     <div class="x_content">
@@ -68,15 +56,46 @@
                                             <label class="control-label col-md-3 col-sm-3 ">Roles</label>
                                             <div class="col-md-9 col-sm-9 ">
                                                 @foreach($roles as $role)
-                                                <div class="">
-                                                    <label>
-                                                        <input type="checkbox" class="js-switch" name="roles[]" value="{{ $role->name }}" >
-                                                         {{ ucfirst($role->name) }}
-                                                    </label>
-                                                </div>
+                                                    <div class="">
+                                                        <label>
+                                                            <input type="checkbox" class="js-switch" name="roles[]" value="{{ $role->name }}" >
+                                                            {{ ucfirst($role->name) }}
+                                                        </label>
+                                                    </div>
                                                 @endforeach
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="x_panel">
+                                    <div class="x_content">
+                                        <br>
+                                        <div class="form-group row">
+                                            <label class="control-label col-md-3 col-sm-3 ">Avatar</label>
+                                            <div class="col-md-9 col-sm-9 ">
+                                                <input type="file" name="avatar" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h4>User Information</h4>
+                                    </div>
+                                    <div class="x_content">
+                                        <br>
+                                        @foreach($info as $key => $note)
+                                        <div class="form-group row">
+                                            <label class="control-label col-md-3 col-sm-3 ">{{ $note['label'] }}</label>
+                                            <div class="col-md-9 col-sm-9 ">
+
+                                                    <input class="form-control" type="text" name="info[{{ $key }}]" value="" />
+
+                                            </div>
+                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

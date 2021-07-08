@@ -43,4 +43,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    private $info = [
+        'last_name' => ['label' => 'Last Name', 'value' => ''],
+        'phone'     => ['label' => 'Phone Number', 'value' => ''],
+    ];
+
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    public function setInfo($key, $value)
+    {
+        $this->info[$key]['value'] = $value;
+    }
 }

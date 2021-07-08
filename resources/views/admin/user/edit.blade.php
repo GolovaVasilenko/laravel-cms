@@ -11,9 +11,8 @@
                 </div>
 
             </div>
-
             <div class="clearfix"></div>
-
+            @include('admin.partials.alerts')
             <div class="row">
                 <div class="col-md-12 col-sm-12  ">
                     <div class="x_panel">
@@ -66,12 +65,7 @@
                                                     <input type="email" name="email" class="form-control" placeholder="User Email" value="{{ $user->email }}">
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="control-label col-md-3 col-sm-3 ">Password</label>
-                                                <div class="col-md-9 col-sm-9 ">
-                                                    <input type="password" name="password" class="form-control" placeholder="Password">
-                                                </div>
-                                            </div>
+
                                             <div class="form-group row">
                                                 <label class="control-label col-md-3 col-sm-3 ">Roles</label>
                                                 <div class="col-md-9 col-sm-9 ">
