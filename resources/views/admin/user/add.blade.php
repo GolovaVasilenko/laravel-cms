@@ -30,7 +30,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                            <div class="col-md-6 ">
+                            <div class="col-md-8 ">
                                 <div class="x_panel">
                                     <div class="x_content">
                                         <br>
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 ">
+                            <div class="col-md-4 ">
                                 <div class="x_panel">
                                     <div class="x_content">
                                         <br>

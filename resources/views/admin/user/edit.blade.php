@@ -29,7 +29,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <div class="col-md-6 ">
+                                <div class="col-md-3 ">
                                     <div class="x_panel">
                                         <div class="x_content">
                                             <br>
@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 ">
+                                <div class="col-md-9 ">
                                     <div class="x_panel">
                                         <div class="x_content">
                                             <br>
@@ -87,13 +87,11 @@
                                         </div>
                                         <div class="x_content">
                                             <br>
-                                            @foreach($user->info as $key => $note)
+                                            @foreach($info as $key => $note)
                                                 <div class="form-group row">
                                                     <label class="control-label col-md-3 col-sm-3 ">{{ $user->infoLabels[$key] }}</label>
                                                     <div class="col-md-9 col-sm-9 ">
-
-                                                        <input class="form-control" type="text" name="info[{{ $key }}]" value="{{ $note }}" />
-
+                                                        <input class="form-control" type="text" name="info[{{ $key }}]" value="{{ $note ?? '' }}" />
                                                     </div>
                                                 </div>
                                             @endforeach

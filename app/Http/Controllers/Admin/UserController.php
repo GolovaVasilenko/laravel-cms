@@ -72,7 +72,8 @@ class UserController extends AdminController
      */
     public function edit(User $user, UserService $service)
     {
-        return view('admin.user.edit', ['roles' => Role::all(), 'user' => $user]);
+        $info = $user->info ?? $user->infoLabels;
+        return view('admin.user.edit', ['roles' => Role::all(), 'user' => $user, 'info' => $info]);
     }
 
     /**
