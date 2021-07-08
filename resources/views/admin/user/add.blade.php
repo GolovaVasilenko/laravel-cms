@@ -88,11 +88,9 @@
                                         <br>
                                         @foreach($info as $key => $note)
                                         <div class="form-group row">
-                                            <label class="control-label col-md-3 col-sm-3 ">{{ $note['label'] }}</label>
+                                            <label class="control-label col-md-3 col-sm-3 ">{{ $note }}</label>
                                             <div class="col-md-9 col-sm-9 ">
-
-                                                    <input class="form-control" type="text" name="info[{{ $key }}]" value="" />
-
+                                                <input class="form-control" type="text" name="info[{{ $key }}]" value="" />
                                             </div>
                                         </div>
                                         @endforeach

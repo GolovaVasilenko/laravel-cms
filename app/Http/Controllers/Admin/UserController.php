@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
 use App\Services\MediaUploadService;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -26,13 +27,13 @@ class UserController extends AdminController
      */
     public function create(User $user)
     {
-        return view('admin.user.add', ['roles' => Role::all(), 'info' => $user->getInfo()]);
+        return view('admin.user.add', ['roles' => Role::all(), 'info' => $user->infoLabels]);
     }
 
     /**
      * @param StoreUserRequest $request
      */
-    public function store(StoreUserRequest $request, MediaUploadService $media)
+    public function store(StoreUserRequest $request, MediaUploadService $media, UserService $service)
     {
         $validated = $request->validated();
 
@@ -41,7 +42,7 @@ class UserController extends AdminController
         if(!$user) {
             return back()->with('error', 'Error creation user!');
         }
-        $user->setInfo($validated['info']);
+
         $user->assignRole($validated['roles']);
 
         if($request->hasFile('avatar')) {
@@ -69,7 +70,7 @@ class UserController extends AdminController
      * @param  \App\Models\User  $user
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $user, UserService $service)
     {
         return view('admin.user.edit', ['roles' => Role::all(), 'user' => $user]);
     }
