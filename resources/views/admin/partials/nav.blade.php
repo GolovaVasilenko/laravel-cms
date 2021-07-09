@@ -4,7 +4,7 @@
         <h3>General</h3>
         <ul class="nav side-menu">
             <li><a href="{{ route('dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-file"></i> Pages</a></li>
+            <li><a href="{{ route('pages.index') }}"><i class="fa fa-file"></i> Pages</a></li>
             <li><a><i class="fa fa-file-text"></i> Posts <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="#"><i class="fa fa-file-text"></i> Posts</a></li>

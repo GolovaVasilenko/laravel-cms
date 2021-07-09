@@ -22,6 +22,8 @@ Route::group(['prefix' => LocalMiddleware::getLocale()], function(){
         Route::get('/', [DashboardController::class, 'index'])
         ->name('dashboard');
 
+        Route::resource('pages', \App\Http\Controllers\Admin\PageController::class);
+
         Route::resource('users', UserController::class);
         Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
     });
