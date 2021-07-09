@@ -69,7 +69,11 @@
                                 <a class="dropdown-item"  href="{{ route('logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                             </div>
                         </li>
-
+                        <li class="nav-item" style="padding-left: 25px;">
+                            @foreach(config('translatable.locales') as $locale)
+                                <a href="{{ route('setLocale', ['lang' => $locale]) }}">{{ strtoupper($locale) }}</a>
+                            @endforeach
+                        </li>
                     </ul>
                 </nav>
             </div>
