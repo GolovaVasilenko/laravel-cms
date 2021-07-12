@@ -55,8 +55,8 @@
                                                 <td>{{ $page->created_at }}</td>
                                                 <td>
                                                     <a class="btn btn-outline-primary btn-sm" href="{{ route('pages.edit', ['page' => $page]) }}">Edit</a>
-                                                    <form style="display:inline;">
-                                                        @csrf @method('delete') <button class="btn btn-outline-danger btn-sm">Delete</button>
+                                                    <form class="remove-item-form" style="display:inline;" method="post" action="{{ route('pages.destroy', ['page' => $page]) }}">
+                                                        @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm remove-item-form-btn">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -101,5 +101,6 @@
     <script src="{{ asset('admin/vendors/jszip/dist/jszip.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/pdfmake/build/pdfmake.min.js') }}"></script>
     <script src="{{ asset('admin/vendors/pdfmake/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('admin/build/js/other-theme.js') }}"></script>
 @endsection
 
