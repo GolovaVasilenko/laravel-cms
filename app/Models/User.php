@@ -42,5 +42,12 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'info' => 'array'
     ];
+
+    public $infoLabels = [
+        'last_name' => 'Last Name',
+        'phone'     => 'Phone Number',
+    ];
+
 }
