@@ -52,7 +52,7 @@
                                                 <td>{{ $setting->id }}</td>
                                                 <td>{{ $setting->title }}</td>
                                                 <td>{{ $setting->slug }}</td>
-                                                <td>@if($setting->value) {{ $setting->value }} @else @include('admin/partials/forms/' . $setting->type, ['setting' => $setting]) @endif</td>
+                                                <td>@include('admin/partials/forms/' . $setting->type, ['setting' => $setting]) </td>
                                                 <td>
                                                     <a class="btn btn-outline-primary btn-sm settings-update-btn" data-slug="#{{ $setting->slug }}" href="#">Edit</a>
                                                     <form class="remove-item-form" style="display:inline;" method="post" action="{{ route('settings.destroy', ['setting' => $setting]) }}">
