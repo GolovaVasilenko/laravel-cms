@@ -22,13 +22,16 @@ class CreateSettingsTable extends Migration
 
         Schema::create('setting_translations', function (Blueprint $table) {
             $table->id();
-            $table->integer('setting_id')->unsigned();
+            $table->unsignedBigInteger('setting_id');
             $table->string('locale')->index();
             $table->string('title', 255);
-            $table->json('value');
+            $table->json('value')->nullable();
+            $table->string('group',255)->default('general');
 
             $table->unique(['setting_id', 'locale']);
-            $table->foreign('setting_id')->references('id')->on('settings')->onDelete('cascade');
+            $table->foreign('setting_id')->references('id')->on('settings')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

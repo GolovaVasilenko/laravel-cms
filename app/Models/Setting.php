@@ -12,11 +12,7 @@ class Setting extends Model implements TranslatableContract
     use HasFactory, Translatable;
 
     public $translatedAttributes = ['title', 'value'];
+
     protected $fillable = ['type', 'slug'];
 
-    public $types = [
-        'text'     => 'Simple Text',
-        'textarea' => 'Text Area',
-        'file'     => 'File'
-    ];
 }

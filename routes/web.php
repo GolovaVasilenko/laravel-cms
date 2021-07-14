@@ -23,6 +23,7 @@ Route::group(['prefix' => LocalMiddleware::getLocale()], function(){
         ->name('dashboard');
 
         Route::resource('pages', \App\Http\Controllers\Admin\PageController::class);
+        Route::resource('settings', \App\Http\Controllers\Admin\SettingController::class);
 
         Route::resource('users', UserController::class);
         Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);

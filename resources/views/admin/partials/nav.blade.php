@@ -26,7 +26,7 @@
                     <li><a href="#"><i class="fa fa-warning"></i> Permissions</a></li>
                 </ul>
             </li>
-            <li><a href="#"><i class="fa fa-gears"></i> Settings</a></li>
+            <li><a href="{{ route('settings.index') }}"><i class="fa fa-gears"></i> Settings</a></li>
         </ul>
     </div>
 

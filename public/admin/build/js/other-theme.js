@@ -10,4 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         });
     });
+
+    let SettingsEditButton = document.querySelectorAll('.settings-update-btn');
+
+    SettingsEditButton.forEach(function(elem) {
+        let settingSlug = elem.getAttribute('data-slug');
+        elem.addEventListener('click', function(e) {
+            e.preventDefault();
+            let form = document.querySelector(settingSlug).submit();
+        });
+    });
 });
