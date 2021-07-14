@@ -9,7 +9,7 @@ class RoleController extends Controller
 {
     public function index()
     {
-        return view('');
+        //return view('');
     }
 
     public function create()
