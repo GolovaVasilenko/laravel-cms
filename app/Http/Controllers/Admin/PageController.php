@@ -108,10 +108,11 @@ class PageController extends AdminController
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Page $page)
     {
-        dd($page);
+        $page->delete();
+        return redirect()->route('pages.index')->with('success', 'Item delted successfully!');
     }
 }
