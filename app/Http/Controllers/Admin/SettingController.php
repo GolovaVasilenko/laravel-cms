@@ -95,10 +95,11 @@ class SettingController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Setting $setting)
     {
-        //
+        $setting->delete();
+        return redirect()->route('settings.index')->with('success', 'Setting deleted successfully!');
     }
 }
