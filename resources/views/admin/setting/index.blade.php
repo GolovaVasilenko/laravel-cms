@@ -42,6 +42,7 @@
                                             <th>#ID</th>
                                             <th>Name</th>
                                             <th>Slug</th>
+                                            <th>Group</th>
                                             <th>Value</th>
                                             <th>Actions</th>
                                         </tr>
@@ -52,9 +53,10 @@
                                                 <td>{{ $setting->id }}</td>
                                                 <td>{{ $setting->title }}</td>
                                                 <td>{{ $setting->slug }}</td>
+                                                <td>{{ $setting->group }}</td>
                                                 <td>@include('admin/partials/forms/' . $setting->type, ['setting' => $setting]) </td>
                                                 <td>
-                                                    <a class="btn btn-outline-primary btn-sm settings-update-btn" data-slug="#{{ $setting->slug }}" href="#">Edit</a>
+                                                    <a class="btn btn-outline-primary btn-sm settings-update-btn" data-slug="#{{ $setting->slug }}" href="#">Save</a>
                                                     <form class="remove-item-form" style="display:inline;" method="post" action="{{ route('settings.destroy', ['setting' => $setting]) }}">
                                                         @csrf @method('delete') <button type="submit" class="btn btn-outline-danger btn-sm remove-item-form-btn">Delete</button>
                                                     </form>

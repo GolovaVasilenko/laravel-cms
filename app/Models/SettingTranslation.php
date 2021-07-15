@@ -10,7 +10,7 @@ class SettingTranslation extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $fillable = ['title', 'value'];
+    protected $fillable = ['title', 'value', 'group'];
 
     protected $casts = [
         'value' => 'array',
