@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
+use App\Services\MediaUploadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -84,9 +85,15 @@ class SettingController extends Controller
      * @param  \App\Models\Setting  $setting
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Setting $setting)
+    public function update(Request $request, Setting $setting, MediaUploadService $service)
     {
-        $setting->value = $request->get('value');
+
+        if($request->hasFile('value')) {
+            $setting->value = $service->uploadImage($request->file('value'));
+        } else {
+            $setting->value = $request->get('value');
+        }
+
         $setting->save();
         return redirect()->route('settings.index')->with('success', 'Setting updated successfully!');
     }
